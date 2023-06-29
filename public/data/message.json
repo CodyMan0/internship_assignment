@@ -1,0 +1,22 @@
+[
+	{
+		"created_at": "2023-06-10 13:00:00",
+		"id": 101,
+		"msg": {
+			"mtype": "text",
+			"content": "안녕하세요. \\n주선자입니다. 만나서 반갑습니다~"
+		},
+		"photo_url": "https://photo.vanillabridge.com/app_photos/agent_man.JPG",
+		"user_id": 2,
+		"user_name": "주선자"
+	},
+	{
+		"created_at": "2023-06-13 22:10:15",
+		"id": 112,
+		"msg": { "mtype": "photo" },
+
+		"photo_url": "https://photo.vanillabridge.com/app_photos/agent_man.JPG",
+		"user_id": 2,
+		"user_name": "주선자"
+	}
+]

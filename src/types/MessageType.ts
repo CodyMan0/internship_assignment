@@ -6,6 +6,7 @@ export interface MessageService {
 }
 
 export interface MessageInfoType {
+	id: number;
 	user_id: number;
 	user_name: string;
 	photo_url: string;
