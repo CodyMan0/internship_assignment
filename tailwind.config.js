@@ -9,6 +9,7 @@ export default {
 				beige: "#FAF0E1",
 				lightGray: "#D9D9D9",
 				gray: "#999",
+				darkGray: "#525252",
 				success: "#4785FF",
 				fail: "#ff3131",
 				white: "#fff",

@@ -11,6 +11,28 @@
 		"user_name": "주선자"
 	},
 	{
+		"created_at": "2023-06-10 13:00:00",
+		"id": 41,
+		"msg": {
+			"mtype": "text",
+			"content": "안녕하세요. \\n주선자입니다. 만나서 반갑습니다~"
+		},
+		"photo_url": "https://photo.vanillabridge.com/app_photos/agent_man.JPG",
+		"user_id": 1,
+		"user_name": "이주영"
+	},
+	{
+		"created_at": "2023-06-10 13:48:00",
+		"id": 151,
+		"msg": {
+			"mtype": "text",
+			"content": "안녕하세요. \\n주선자입니다. 만나서 반갑습니다~ 그런데 나는 있잖아. 배가 너무 고파요"
+		},
+		"photo_url": "https://photo.vanillabridge.com/app_photos/agent_man.JPG",
+		"user_id": 2,
+		"user_name": "주선자"
+	},
+	{
 		"created_at": "2023-06-10 13:07:00",
 		"id": 101,
 		"msg": {
