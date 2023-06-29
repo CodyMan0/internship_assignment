@@ -1,10 +1,21 @@
-import { useContext } from "react";
-import { MessageContext } from "../context/MessageContext";
+import { useEffect, useState } from "react";
+import { useMessageService } from "./useMessageService";
+import { MessageInfoType } from "../types/MessageType";
 
-export const useMessageService = () => {
-	const messageService = useContext(MessageContext);
-	if (!messageService) {
-		throw new Error("Can't find targetProvider");
-	}
-	return messageService;
+const useMessage = () => {
+	const messageService = useMessageService();
+	const [messages, setMessages] = useState<MessageInfoType[]>();
+
+	const getMessage = async () => {
+		const data = await messageService.getAllMessage();
+		setMessages(data);
+		return data;
+	};
+
+	useEffect(() => {
+		getMessage();
+	}, []);
+	return { messages };
 };
+
+export default useMessage;
