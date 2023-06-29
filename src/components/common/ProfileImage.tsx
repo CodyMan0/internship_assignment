@@ -1,4 +1,4 @@
-import counterPartImg from "../assets/bridge.png";
+import counterPartImg from "../../assets/bridge.png";
 
 type Props = {
 	url: string;

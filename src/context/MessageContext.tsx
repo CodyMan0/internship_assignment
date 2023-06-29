@@ -7,6 +7,7 @@ interface MessageProviderProps {
 }
 
 export const MessageContext = createContext<MessageService | null>(null);
+
 export const MessageProvider = ({
 	children,
 	messageService,
