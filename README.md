@@ -21,6 +21,29 @@ $ npm install
 $ npm run dev / yarn dev
 ```
 
+## 서버 종료시, 목데이터로 구현 확인 방법
+
+```tsx
+//App.tsx
+// 로컬 json파일을 활용시
+	//const client = new HttpClient("http://test.vanillabridge.com/");
+	const client = new HttpClient("http://localhost:5174/"); // 주의!! 기본 포트는 5173번으로 자신의 로컬 Port 사용
+
+
+// MessageService.ts
+
+  async getAllMessage() {
+		// const response = await this.httpClient.get<MessageResponse>("test_data");
+		const response = await this.httpClient.get<MessageResponse>(
+			"data/message.json"
+		);
+		const { data } = response;
+
+		return data;
+	}
+
+```
+
 ## 👍 에러 해결 과정
 
 ## issue Template
