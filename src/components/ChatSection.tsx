@@ -6,7 +6,7 @@ type Props = {
 };
 const ChatSection = ({ messageList }: Props) => {
 	return (
-		<div className="py-2 px-4">
+		<div className="py-2 px-4 w-full h-[80%] overflow-y-scroll">
 			{messageList &&
 				messageList.map((message, index) => {
 					if (message.msg.mtype === "photo") {

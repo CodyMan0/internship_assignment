@@ -4,8 +4,8 @@ import Chat from "./page/Chat";
 import MessageServiceImpl from "./services/MessageService";
 
 function App() {
-	// const client = new HttpClient("http://test.vanillabridge.com/");
-	const client = new HttpClient("http://localhost:5174/");
+	const client = new HttpClient("http://test.vanillabridge.com/");
+	// const client = new HttpClient("http://localhost:5174/");
 	const messageService = new MessageServiceImpl(client.httpClient);
 
 	return (
