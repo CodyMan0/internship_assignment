@@ -6,7 +6,7 @@ type Props = {
 };
 const ChatSection = ({ messageList }: Props) => {
 	return (
-		<div className="py-2 px-4 w-full h-[80%] overflow-y-scroll">
+		<section className="py-2 px-4 w-full h-[86%] overflow-y-scroll">
 			{messageList &&
 				messageList.map((message, index) => {
 					if (message.msg.mtype === "photo") {
@@ -15,7 +15,7 @@ const ChatSection = ({ messageList }: Props) => {
 					console.log("in map", message);
 					return <MessageBox key={index} message={message} />;
 				})}
-		</div>
+		</section>
 	);
 };
 
