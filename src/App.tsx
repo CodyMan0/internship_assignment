@@ -1,5 +1,6 @@
 import { MessageProvider } from "./context/MessageContext";
 import HttpClient from "./http/HttpClient";
+import Chat from "./page/Chat";
 import MessageServiceImpl from "./services/MessageService";
 
 function App() {
@@ -8,10 +9,7 @@ function App() {
 
 	return (
 		<MessageProvider messageService={messageService}>
-			<div className="text-3xl bg-background w-full h-full ">
-				<nav>header</nav>
-				<section>매세지</section>
-			</div>
+			<Chat />
 		</MessageProvider>
 	);
 }
