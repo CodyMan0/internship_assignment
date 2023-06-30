@@ -4,12 +4,19 @@
 
 **기간 : 2023년 06월 29일 13:00 ~ 2022년 06월 30일 23:00**
 
-## 🛠 2. 기술 스택
+## 🛠 2. 기술 스택 및 이유
 
-- React.js
-- Typescript
-- Axios
-- Tailwind.css
+### 2-1 사용한 기술
+
+- **React.js** : 리액트의 가상돔 및 상태에 대해 이해하고 있으며 UI를 만드는데 자신 있어 선택했습니다.
+- **Typescript** : 요청과 응답에 대한 인터페이스 구현으로 빠르고 안전한 페이지를 만들기 위해 선택했습니다.
+- **Axios** : Axios에서 제공해주는 타입과 Axios의 Instance를 사용하여 서버와의 통신 로직의 응집도를 높이는 데 사용하였습니다.
+- **Tailwind.css** : 일관적인 CSS 적용과 tailwind.config.js 파일을 통해 빠르게 구현하기 위해 선택했습니다.
+
+### 2-2 사용하지 않은 기술
+
+- **recoil** : 전역 상태 라이브러리를 사용할 수 있지만 과제의 컴포넌트 복잡도가 높지 않아, react의 context만을 사용하기로 했습니다.
+- **tanstack-query (react-query)** : 서버 상태를 다루는 데 사용하는 라이브러리이지만 서버 상태가 하나뿐이기에 사용하지 않았습니다.
 
 ## 🏁 3. 프로젝트 실행 방법
 
@@ -100,11 +107,11 @@ const client = new HttpClient("http://localhost:5173/"); //로컬 Port 사용
 ### 6-1. 규칙
 
 - page : route가 지정된 페이지입니다.
-- components/common : 로직과 상관없이 공통으로사용하는 컴포넌트입니다.
+- components/common : 로직과 상관없이 공통으로 사용하는 컴포넌트입니다.
 - context : context 디렉토리 입니다.
-- hooks : 컴포넌트에서 로직을 분리하기 위한 디렉토리 입니다.
+- hooks : 컴포넌트에서 로직을 분리 및 서버 상태를 CRUD하는 디렉토리입니다.
 - http : 통신 에러 및 axios instance를 관리하는 디렉토리입니다.
-- services : 서버 상태를 CRUD하는 디렉토리입니다.
+- services : 서버와 비동기적으로 통신하는 로직이 담겨있는 디렉토리입니다.
 - types : typescript의 type들을 모아놓은 디렉토리입니다.
 - utils : 부수적인 함수들을 모아놓은 파일입니다.
 
