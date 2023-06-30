@@ -18,7 +18,7 @@ const MessageBox = ({ message }: Props) => {
 		<div className="mt-4">
 			<div className="flex gap-2 font-normal">
 				{convertUserId(user_id) === "counterPart" && (
-					<CounterpartInfo name={user_name} />
+					<CounterpartInfo name={user_name} url={photo_url} />
 				)}
 			</div>
 			<div className={`${sortingFromUserId}`}>

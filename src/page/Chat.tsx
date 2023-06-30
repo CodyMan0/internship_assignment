@@ -7,7 +7,11 @@ import { sortedMessageOnTimesAndId } from "../utils/sortMessage";
 
 const Chat = () => {
 	const messageService = useMessageService();
-	const { data: messages, setData: setMessages } = useHttpAxios(getMessage);
+	const {
+		data: messages,
+		setData: setMessages,
+		userNameFromMsgs,
+	} = useHttpAxios(getMessage);
 
 	async function getMessage() {
 		const messageList = await messageService.getAllMessage();
@@ -18,7 +22,12 @@ const Chat = () => {
 
 	return (
 		<div className="bg-background w-full h-full border-beige border-2 rounded-md ">
-			<Header />
+			{messages && (
+				<Header
+					name={userNameFromMsgs?.user_name}
+					url={userNameFromMsgs?.photo_url}
+				/>
+			)}
 			<ChatSection messageList={sortedMessages} />
 			<UserInput />
 		</div>

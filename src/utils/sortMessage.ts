@@ -1,6 +1,8 @@
 import { MessageInfoType } from "../types/MessageType";
 
-export const sortedMessageOnTimesAndId = (messages: MessageInfoType[]) => {
+export const sortedMessageOnTimesAndId = (
+	messages: MessageInfoType[] | undefined
+) => {
 	if (messages) {
 		return messages.sort((a, b) => {
 			const prevDate = +new Date(a.created_at);

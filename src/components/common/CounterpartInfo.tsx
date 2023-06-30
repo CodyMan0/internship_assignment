@@ -1,13 +1,13 @@
 import ProfileImage from "./ProfileImage";
-
 type Props = {
-	name: string;
+	name: string | undefined;
+	url: string | undefined;
 };
 
-const CounterpartInfo = ({ name }: Props) => {
+const CounterpartInfo = ({ name, url }: Props) => {
 	return (
 		<>
-			<ProfileImage url="UI" />
+			<ProfileImage url={url} />
 			<h1 className="font-semibold">{name}</h1>
 		</>
 	);
