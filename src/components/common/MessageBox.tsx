@@ -1,9 +1,14 @@
 import { MessageInfoType } from "../../types/MessageType";
-import { formatDetailTime, formatTime } from "../../utils/formatDate";
+import {
+	formatDate,
+	formatDetailTime,
+	formatTime,
+} from "../../utils/formatDate";
 import { getStyleDependOnUserId } from "../../utils/styleMessageBox";
 import { convertUserId } from "../../utils/userId";
 
 import CounterpartInfo from "./CounterpartInfo";
+import Date from "./Date";
 
 type Props = {
 	message: MessageInfoType;
