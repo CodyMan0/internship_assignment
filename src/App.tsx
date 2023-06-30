@@ -1,8 +1,8 @@
+import Chat from "./page/Chat";
+import HttpClient from "./http/HttpClient";
+import MessageServiceImpl from "./services/MessageService";
 import { MessageProvider } from "./context/MessageContext";
 import { ModalProvider } from "./context/ModalContext";
-import HttpClient from "./http/HttpClient";
-import Chat from "./page/Chat";
-import MessageServiceImpl from "./services/MessageService";
 
 function App() {
 	const client = new HttpClient("http://test.vanillabridge.com/");

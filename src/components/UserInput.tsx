@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FiPlusCircle, FiArrowUpCircle } from "react-icons/fi";
 import { MessageInfoType } from "../types/MessageType";
 
@@ -6,7 +6,7 @@ type Props = {
 	setMessages: React.Dispatch<
 		React.SetStateAction<MessageInfoType[] | undefined>
 	>;
-	chatRef: React.RefObject<HTMLDivElement>;
+	chatRef: React.RefObject<any>;
 };
 
 const UserInput = ({ setMessages, chatRef }: Props) => {
@@ -16,7 +16,8 @@ const UserInput = ({ setMessages, chatRef }: Props) => {
 		e.preventDefault();
 		const present = new Date();
 
-		setMessages((prev) => [
+		setMessages((prev: any) => [
+			//unCompleted typeError 1
 			...prev,
 			{
 				created_at: `${present.toString()}`,
@@ -35,16 +36,13 @@ const UserInput = ({ setMessages, chatRef }: Props) => {
 	};
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { value } = e.currentTarget;
-
 		setUserInputValue(value);
 	};
 
 	const scrollYToBtm = () => {
-		const currentRef = chatRef?.current;
 		const scrollHeight = chatRef?.current?.scrollHeight;
-		if (currentRef !== undefined) {
-			chatRef.current.scrollTop = scrollHeight;
-		}
+		// unCompleted typeError 2
+		chatRef.current.scrollTop = scrollHeight;
 	};
 
 	return (
@@ -66,7 +64,9 @@ const UserInput = ({ setMessages, chatRef }: Props) => {
 					autoComplete="on"
 				/>
 				{!!userInputValue && (
-					<FiArrowUpCircle className="absolute right-3 text-3xl text-white fill-main" />
+					<button type="submit">
+						<FiArrowUpCircle className="absolute top-1 right-3  text-3xl text-white fill-main" />
+					</button>
 				)}
 			</div>
 		</form>

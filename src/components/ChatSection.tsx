@@ -1,7 +1,7 @@
-import { MessageInfoType } from "../types/MessageType";
-import { createNewDateList } from "../utils/formatDate";
 import Date from "./common/Date";
 import MessageBox from "./common/MessageBox";
+import { MessageInfoType } from "../types/MessageType";
+import { createNewDateList } from "../utils/formatDate";
 
 type Props = {
 	messageList: MessageInfoType[] | null;

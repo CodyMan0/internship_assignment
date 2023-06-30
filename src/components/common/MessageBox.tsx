@@ -9,7 +9,7 @@ type Props = {
 };
 
 const MessageBox = ({ message }: Props) => {
-	const { created_at, id, msg, photo_url, user_id, user_name } = message;
+	const { created_at, msg, photo_url, user_id, user_name } = message;
 	const backgroundFromUserId = getStyleDependOnUserId(user_id, "background");
 	const textColorFromUserId = getStyleDependOnUserId(user_id, "color");
 	const sortingFromUserId = getStyleDependOnUserId(user_id, "sorting");

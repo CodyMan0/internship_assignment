@@ -1,22 +1,22 @@
-import Header from "../components/Header";
+import { useRef } from "react";
+import useModal from "../hooks/useModal";
+import useHttpAxios from "../hooks/useHttpAxios";
 import UserInput from "../components/UserInput";
+import Header from "../components/Header";
 import { useMessageService } from "../hooks/useMessageService";
 import ChatSection from "../components/ChatSection";
-import useHttpAxios from "../hooks/useHttpAxios";
 import { sortedMessageOnTimesAndId } from "../utils/sortMessage";
 import ModalImage from "../components/common/ModalImage";
-import useModal from "../hooks/useModal";
-import { useRef } from "react";
 
 const Chat = () => {
 	const messageService = useMessageService();
 	const { isOpen } = useModal();
+	const chatRef = useRef(null);
 	const {
 		data: messages,
 		setData: setMessages,
-		userNameFromMsgs,
+		userNameAndPhotoFromMsgs,
 	} = useHttpAxios(getMessage);
-	const chatRef = useRef(null);
 
 	async function getMessage() {
 		const messageList = await messageService.getAllMessage();
@@ -32,12 +32,12 @@ const Chat = () => {
 			)}
 			{messages && (
 				<Header
-					name={userNameFromMsgs?.user_name}
-					url={userNameFromMsgs?.photo_url}
+					name={userNameAndPhotoFromMsgs?.user_name}
+					url={userNameAndPhotoFromMsgs?.photo_url}
 				/>
 			)}
 			<ChatSection messageList={sortedMessages} chatRef={chatRef} />
-			{isOpen && <ModalImage url={userNameFromMsgs?.photo_url} />}
+			{isOpen && <ModalImage url={userNameAndPhotoFromMsgs?.photo_url} />}
 			<UserInput setMessages={setMessages} chatRef={chatRef} />
 		</div>
 	);
