@@ -1,7 +1,6 @@
 import Header from "../components/Header";
 import UserInput from "../components/UserInput";
 import { useMessageService } from "../hooks/useMessageService";
-
 import ChatSection from "../components/ChatSection";
 import useHttpAxios from "../hooks/useHttpAxios";
 import { sortedMessageOnTimesAndId } from "../utils/sortMessage";
@@ -16,7 +15,6 @@ const Chat = () => {
 	}
 
 	const sortedMessages = sortedMessageOnTimesAndId(messages);
-	console.log("후", sortedMessages);
 
 	return (
 		<div className="bg-background w-full h-full border-beige border-2 rounded-md ">

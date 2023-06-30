@@ -1,14 +1,8 @@
 import { MessageInfoType } from "../../types/MessageType";
-import {
-	formatDate,
-	formatDetailTime,
-	formatTime,
-} from "../../utils/formatDate";
+import { formatDetailTime, formatTime } from "../../utils/formatDate";
 import { getStyleDependOnUserId } from "../../utils/styleMessageBox";
 import { convertUserId } from "../../utils/userId";
-
 import CounterpartInfo from "./CounterpartInfo";
-import Date from "./Date";
 
 type Props = {
 	message: MessageInfoType;
@@ -29,7 +23,11 @@ const MessageBox = ({ message }: Props) => {
 			</div>
 			<div className={`${sortingFromUserId}`}>
 				<div className={`${backgroundFromUserId}`}>
-					<p className={`${textColorFromUserId}`}>{msg.content}</p>
+					<div className={`${textColorFromUserId}`}>
+						{msg.content.split("\\n").map((line, index) => {
+							return <p key={index}>{line}</p>;
+						})}
+					</div>
 				</div>
 				<p className="text-[8px] text-gray font-semibold">
 					{formatDetailTime(formatTime(created_at))}
