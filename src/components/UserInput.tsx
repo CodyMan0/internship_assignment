@@ -1,11 +1,34 @@
 import { useState } from "react";
 import { FiPlusCircle, FiArrowUpCircle } from "react-icons/fi";
+import { MessageInfoType } from "../types/MessageType";
 
-const UserInput = () => {
+type Props = {
+	setMessages: React.Dispatch<
+		React.SetStateAction<MessageInfoType[] | undefined>
+	>;
+};
+
+const UserInput = ({ setMessages }: Props) => {
 	const [userInputValue, setUserInputValue] = useState("");
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
+		const present = new Date();
+
+		setMessages((prev) => [
+			...prev,
+			{
+				created_at: `${present.toString()}`,
+				id: 140,
+				msg: {
+					mtype: "text",
+					content: `${userInputValue}`,
+				},
+				photo_url: "https://photo.vanillabridge.com/app_photos/agent_man.JPG",
+				user_id: 1,
+				user_name: "소개팅남",
+			},
+		]);
 		setUserInputValue("");
 	};
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

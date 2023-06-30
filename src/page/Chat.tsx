@@ -23,6 +23,8 @@ const Chat = () => {
 
 	const sortedMessages = sortedMessageOnTimesAndId(messages);
 
+	console.log("상위", messages);
+
 	return (
 		<div className="bg-background w-full h-full border-beige border-2 rounded-md relative">
 			{isOpen && (
@@ -36,7 +38,7 @@ const Chat = () => {
 			)}
 			<ChatSection messageList={sortedMessages} />
 			{isOpen && <ModalImage url={userNameFromMsgs?.photo_url} />}
-			<UserInput />
+			<UserInput setMessages={setMessages} />
 		</div>
 	);
 };
