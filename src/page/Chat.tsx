@@ -6,6 +6,7 @@ import useHttpAxios from "../hooks/useHttpAxios";
 import { sortedMessageOnTimesAndId } from "../utils/sortMessage";
 import ModalImage from "../components/common/ModalImage";
 import useModal from "../hooks/useModal";
+import { useRef } from "react";
 
 const Chat = () => {
 	const messageService = useMessageService();
@@ -15,6 +16,7 @@ const Chat = () => {
 		setData: setMessages,
 		userNameFromMsgs,
 	} = useHttpAxios(getMessage);
+	const chatRef = useRef(null);
 
 	async function getMessage() {
 		const messageList = await messageService.getAllMessage();
@@ -36,9 +38,9 @@ const Chat = () => {
 					url={userNameFromMsgs?.photo_url}
 				/>
 			)}
-			<ChatSection messageList={sortedMessages} />
+			<ChatSection messageList={sortedMessages} chatRef={chatRef} />
 			{isOpen && <ModalImage url={userNameFromMsgs?.photo_url} />}
-			<UserInput setMessages={setMessages} />
+			<UserInput setMessages={setMessages} chatRef={chatRef} />
 		</div>
 	);
 };

@@ -5,12 +5,13 @@ import MessageBox from "./common/MessageBox";
 
 type Props = {
 	messageList: MessageInfoType[] | null;
+	chatRef: React.RefObject<HTMLDivElement>;
 };
-const ChatSection = ({ messageList }: Props) => {
+const ChatSection = ({ messageList, chatRef }: Props) => {
 	const removeSameDay = createNewDateList(messageList);
 
 	return (
-		<section className="py-2 px-4 w-full h-[86%] overflow-y-scroll">
+		<div className="py-2 px-4 w-full h-[86%] overflow-y-auto" ref={chatRef}>
 			{messageList &&
 				messageList.map((message, index) => {
 					if (message.msg.mtype === "photo") {
@@ -24,7 +25,7 @@ const ChatSection = ({ messageList }: Props) => {
 						</div>
 					);
 				})}
-		</section>
+		</div>
 	);
 };
 

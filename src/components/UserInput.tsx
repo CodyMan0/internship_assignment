@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FiPlusCircle, FiArrowUpCircle } from "react-icons/fi";
 import { MessageInfoType } from "../types/MessageType";
 
@@ -6,9 +6,10 @@ type Props = {
 	setMessages: React.Dispatch<
 		React.SetStateAction<MessageInfoType[] | undefined>
 	>;
+	chatRef: React.RefObject<HTMLDivElement>;
 };
 
-const UserInput = ({ setMessages }: Props) => {
+const UserInput = ({ setMessages, chatRef }: Props) => {
 	const [userInputValue, setUserInputValue] = useState("");
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -29,6 +30,7 @@ const UserInput = ({ setMessages }: Props) => {
 				user_name: "소개팅남",
 			},
 		]);
+		scrollYToBtm();
 		setUserInputValue("");
 	};
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,11 +39,20 @@ const UserInput = ({ setMessages }: Props) => {
 		setUserInputValue(value);
 	};
 
+	const scrollYToBtm = () => {
+		const currentRef = chatRef?.current;
+		const scrollHeight = chatRef?.current?.scrollHeight;
+		if (currentRef !== undefined) {
+			chatRef.current.scrollTop = scrollHeight;
+		}
+	};
+
 	return (
 		<form
 			className="w-full flex items-center justify-center bg-beige h-14 px-4 py-2 gap-2"
 			action="submit"
 			onSubmit={handleSubmit}
+			onClick={scrollYToBtm}
 		>
 			<FiPlusCircle className="flex-none text-3xl text-gray" />
 			<div className="relative flex-auto w-full flex items-center">
