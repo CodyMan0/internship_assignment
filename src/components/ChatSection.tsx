@@ -1,5 +1,5 @@
 import { MessageInfoType } from "../types/MessageType";
-import { formatDate } from "../utils/formatDate";
+import { createNewDateList } from "../utils/formatDate";
 import Date from "./common/Date";
 import MessageBox from "./common/MessageBox";
 
@@ -7,21 +7,7 @@ type Props = {
 	messageList: MessageInfoType[] | null;
 };
 const ChatSection = ({ messageList }: Props) => {
-	const createdDates: (string | null)[] | undefined = messageList?.map(
-		(message, index) => {
-			if (
-				index > 0 &&
-				formatDate(messageList[index - 1].created_at) ===
-					formatDate(message.created_at)
-			) {
-				return null;
-			} else {
-				return formatDate(message.created_at);
-			}
-		}
-	);
-
-	console.log(createdDates);
+	const removeSameDay = createNewDateList(messageList);
 
 	return (
 		<section className="py-2 px-4 w-full h-[86%] overflow-y-scroll">
@@ -30,7 +16,7 @@ const ChatSection = ({ messageList }: Props) => {
 					if (message.msg.mtype === "photo") {
 						return null;
 					}
-					const firstDate = createdDates?.[index];
+					const firstDate = removeSameDay?.[index];
 					return (
 						<div key={index}>
 							{!!firstDate && <Date createDate={firstDate} />}

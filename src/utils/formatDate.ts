@@ -1,3 +1,5 @@
+import { MessageInfoType } from "../types/MessageType";
+
 function formatDate(date: string) {
 	const targetDate = new Date(date);
 	const year = targetDate.getFullYear();
@@ -5,6 +7,21 @@ function formatDate(date: string) {
 	const day = targetDate.getDate();
 	const formattedDate = `${year}년 ${month}월${day}일`;
 	return formattedDate;
+}
+
+function createNewDateList(messageList: MessageInfoType[] | null) {
+	const test = messageList?.map((message, index) => {
+		if (
+			index > 0 &&
+			formatDate(messageList[index - 1].created_at) ===
+				formatDate(message.created_at)
+		) {
+			return null;
+		} else {
+			return formatDate(message.created_at);
+		}
+	});
+	return test;
 }
 
 function formatTime(date: string) {
@@ -34,4 +51,4 @@ function formatDetailTime(date: string) {
 	}`;
 	return formattedDate;
 }
-export { formatDate, formatTime, formatDetailTime };
+export { formatDate, formatTime, formatDetailTime, createNewDateList };
