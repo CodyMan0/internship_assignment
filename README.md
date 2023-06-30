@@ -26,6 +26,7 @@
 ### 4-1 단순화한 컴포넌트
 
 <img src="https://github.com/CodyMan0/koda_frontend/assets/93697790/f454ee9e-0753-4e0e-b3d7-234e9330871b" alt="UI_gif">
+
 ### 4-2 홈페이지 UI
 
 <p align="center">
