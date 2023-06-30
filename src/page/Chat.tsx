@@ -25,8 +25,6 @@ const Chat = () => {
 
 	const sortedMessages = sortedMessageOnTimesAndId(messages);
 
-	console.log("상위", messages);
-
 	return (
 		<div className="bg-background w-full h-full border-beige border-2 rounded-md relative">
 			{isOpen && (

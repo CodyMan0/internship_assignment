@@ -6,7 +6,6 @@ type Props = {
 	url: string | undefined;
 };
 const Header = ({ name, url }: Props) => {
-	console.log("header", name, url);
 	return (
 		<nav className=" bg-beige py-2 px-4">
 			<div className="flex relative justify-center items-center gap-2">
