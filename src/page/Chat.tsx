@@ -4,6 +4,7 @@ import { useMessageService } from "../hooks/useMessageService";
 
 import ChatSection from "../components/ChatSection";
 import useHttpAxios from "../hooks/useHttpAxios";
+import { sortedMessageOnTimesAndId } from "../utils/sortMessage";
 
 const Chat = () => {
 	const messageService = useMessageService();
@@ -14,12 +15,13 @@ const Chat = () => {
 		setMessages(messageList);
 	}
 
-	console.log("chat", messages);
+	const sortedMessages = sortedMessageOnTimesAndId(messages);
+	console.log("후", sortedMessages);
 
 	return (
 		<div className="bg-background w-full h-full border-beige border-2 rounded-md ">
 			<Header />
-			<ChatSection messageList={messages} />
+			<ChatSection messageList={sortedMessages} />
 			<UserInput />
 		</div>
 	);

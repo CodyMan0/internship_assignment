@@ -2,7 +2,7 @@ import { MessageInfoType } from "../types/MessageType";
 import MessageBox from "./common/MessageBox";
 
 type Props = {
-	messageList: MessageInfoType[] | undefined;
+	messageList: MessageInfoType[] | null;
 };
 const ChatSection = ({ messageList }: Props) => {
 	return (
