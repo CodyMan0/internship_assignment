@@ -2,7 +2,6 @@ export type MessageResponse = Promise<MessageInfoType[]>;
 
 export interface MessageService {
 	getAllMessage: () => MessageResponse;
-	// postMessage: (messageInfo: any) => void;
 }
 
 export interface MessageInfoType {
@@ -14,7 +13,11 @@ export interface MessageInfoType {
 	msg: MessageType;
 }
 
-interface MessageType {
+export interface MessageType {
 	mtype: "text" | "photo";
 	content: string;
+}
+
+export interface PostMessageType {
+	value: string;
 }

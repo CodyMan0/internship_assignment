@@ -10,6 +10,7 @@ const UserInput = () => {
 	};
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { value } = e.currentTarget;
+		console.log("onchage", value);
 		setUserInputValue(value);
 	};
 

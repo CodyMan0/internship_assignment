@@ -12,7 +12,6 @@ const ChatSection = ({ messageList }: Props) => {
 					if (message.msg.mtype === "photo") {
 						return null;
 					}
-					console.log("in map", message);
 					return <MessageBox key={index} message={message} />;
 				})}
 		</section>

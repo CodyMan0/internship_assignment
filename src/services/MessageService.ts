@@ -1,6 +1,5 @@
 import { AxiosInstance } from "axios";
 import { MessageResponse, MessageService } from "../types/MessageType";
-// import HTTPError from "../network/httpError";
 
 export default class MessageServiceImpl implements MessageService {
 	constructor(private httpClient: AxiosInstance) {}
@@ -14,4 +13,12 @@ export default class MessageServiceImpl implements MessageService {
 
 		return data;
 	}
+
+	// async postMessage({ value }: PostMessageType) {
+	// 	const response = await this.httpClient.get<MessageResponse>("서버 통신 x");
+
+	// 	const { data } = response;
+
+	// 	return data;
+	// }
 }
