@@ -1,4 +1,5 @@
 import { MessageProvider } from "./context/MessageContext";
+import { ModalProvider } from "./context/ModalContext";
 import HttpClient from "./http/HttpClient";
 import Chat from "./page/Chat";
 import MessageServiceImpl from "./services/MessageService";
@@ -10,7 +11,9 @@ function App() {
 
 	return (
 		<MessageProvider messageService={messageService}>
-			<Chat />
+			<ModalProvider>
+				<Chat />
+			</ModalProvider>
 		</MessageProvider>
 	);
 }

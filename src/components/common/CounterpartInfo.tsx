@@ -1,3 +1,4 @@
+import useModal from "../../hooks/useModal";
 import ProfileImage from "./ProfileImage";
 type Props = {
 	name: string | undefined;
